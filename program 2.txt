@@ -1,0 +1,13 @@
+import re
+
+text = "I have 2 apples and 3 bananas."
+
+
+numbers = re.findall(r'\d+', text)
+
+print("Numbers found:", numbers)
+
+if re.search("apples", text):
+    print("'apples' found in the text")
+else:
+    print("'apples' not found")
