@@ -1,0 +1,7 @@
+def make(a,l):
+  e=len(a)
+  if a[e-2]==l[0] and a[e-1]==l[1]:
+    print("True")
+  else:
+    print("False")
+make("aaaab","ab")
