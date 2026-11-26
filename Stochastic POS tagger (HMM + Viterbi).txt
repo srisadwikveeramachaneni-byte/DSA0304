@@ -1,0 +1,33 @@
+
+import random
+
+# Training data
+training_data = {
+    "dog": ["NN", "NN", "NN"],
+    "run": ["VB", "NN"],
+    "beautiful": ["JJ", "JJ"],
+    "quickly": ["RB", "RB"],
+    "cat": ["NN", "NN"],
+    "eat": ["VB", "VB"]
+}
+
+def stochastic_tagger(words):
+    tagged_words = []
+
+    for word in words:
+        if word in training_data:
+            tag = random.choice(training_data[word])
+        else:
+            tag = "NN"
+
+        tagged_words.append((word, tag))
+
+    return tagged_words
+
+sentence = ["dog", "run", "beautiful", "cat"]
+
+result = stochastic_tagger(sentence)
+
+print("Input Sentence:", sentence)
+print("Tagged Sentence:")
+print(result)

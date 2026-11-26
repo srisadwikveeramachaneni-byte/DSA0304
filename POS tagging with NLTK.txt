@@ -1,0 +1,21 @@
+
+import nltk
+
+from nltk.tokenize import word_tokenize
+from nltk import pos_tag
+
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('averaged_perceptron_tagger_eng')
+
+text = "The quick brown fox jumps over the lazy dog."
+
+words = word_tokenize(text)
+
+tagged_words = pos_tag(words)
+
+print("Original Text:")
+print(text)
+
+print("\nPOS Tagging:")
+print(tagged_words)

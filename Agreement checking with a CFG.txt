@@ -1,0 +1,33 @@
+
+grammar = {
+    "S": [["NP_SG", "VP_SG"], ["NP_PL", "VP_PL"]],
+
+    "NP_SG": [["he"], ["she"], ["john"]],
+    "NP_PL": [["they"], ["we"], ["students"]],
+
+    "VP_SG": [["runs"], ["plays"], ["eats"]],
+    "VP_PL": [["run"], ["play"], ["eat"]]
+}
+
+def check_agreement(sentence):
+    words = sentence.lower().split()
+
+    for production in grammar["S"]:
+        if words[0] in grammar[production[0]]:
+            if [words[1]] in grammar[production[1]]:
+                return True
+
+    return False
+
+sentences = [
+    "he runs",
+    "they run",
+    "he run",
+    "students plays"
+]
+
+for sentence in sentences:
+    if check_agreement(sentence):
+        print(sentence, "- Correct Agreement")
+    else:
+        print(sentence, "- Incorrect Agreement")

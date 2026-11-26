@@ -1,0 +1,22 @@
+
+import nltk
+from nltk.wsd import lesk
+from nltk.tokenize import word_tokenize
+
+nltk.download("wordnet")
+nltk.download("punkt")
+nltk.download("punkt_tab")
+
+sentence = "I deposited money in the bank"
+
+words = word_tokenize(sentence)
+
+meaning = lesk(words, "bank")
+
+print("Sentence:", sentence)
+
+if meaning:
+    print("Selected Meaning:", meaning.definition())
+    print("Synset:", meaning.name())
+else:
+    print("No meaning found")

@@ -1,0 +1,25 @@
+
+import random
+from collections import defaultdict
+
+text = "natural language processing is interesting. natural language processing is useful."
+
+words = text.lower().split()
+
+bigrams = defaultdict(list)
+
+for i in range(len(words) - 1):
+    bigrams[words[i]].append(words[i + 1])
+
+word = random.choice(words)
+result = [word]
+
+for i in range(10):
+    if word in bigrams:
+        word = random.choice(bigrams[word])
+        result.append(word)
+    else:
+        break
+
+print("Generated Text:")
+print(" ".join(result))

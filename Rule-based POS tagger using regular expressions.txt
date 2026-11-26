@@ -1,0 +1,26 @@
+
+from nltk import RegexpTagger
+
+patterns = [
+    (r'.*ing$', 'VBG'),
+    (r'.*ed$', 'VBD'),
+    (r'.*ly$', 'RB'),
+    (r'.*ous$', 'JJ'),
+    (r'.*s$', 'NNS'),
+    (r'the|a|an', 'DT'),
+    (r'.*', 'NN')
+]
+
+tagger = RegexpTagger(patterns)
+
+sentence = "the boy is playing happily"
+
+words = sentence.split()
+
+result = tagger.tag(words)
+
+print("Input Sentence:")
+print(sentence)
+
+print("\nPOS Tags:")
+print(result)
